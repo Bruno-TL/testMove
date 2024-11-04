@@ -28,7 +28,7 @@ const goPageBudget = () => {
   width: 4%;
   height: 100%;
   background-color: #FF5722;
-  transition: width 0.3s ease;
+  transition: width 0.8s ease;
   z-index: 0;
 }
 

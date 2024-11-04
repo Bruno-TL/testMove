@@ -7,19 +7,109 @@ import BaseButtonBudget from './components/base/BaseButtonBudget.vue';
 <template>
   <header>
     <div class="">
-      <nav>
-        <v-img :width="123" cover :src="logoPRZ"></v-img>
-        <RouterLink to="/">Home</RouterLink>
-        <!-- <RouterLink to="/about">Cases</RouterLink> -->
-        <BaseButtonBudget />
+      <nav class="container__nav">
+        <RouterLink to="/" class="img__logo">
+          <v-img :width="123" :src="logoPRZ"></v-img>
+        </RouterLink>
+        <div class="container__links__router">
+          <RouterLink class="links__router link_home" to="/">Home</RouterLink>
+          <RouterLink class="links__router link_cases" to="/#cases">Cases</RouterLink>
+          <RouterLink class="links__router link_serv" to="/#servicos">Serviços</RouterLink>
+          <RouterLink class="links__router link_quemsomos" to="/#quem-somos">Quem Somos</RouterLink>
+        </div>
 
+        <BaseButtonBudget />
       </nav>
     </div>
   </header>
 
-  <RouterView />
+  <main id="container__main">
+    <div class="line line-left"></div>
+    <div class="line line-right"></div>
+    <RouterView class="content" />
+  </main>
 </template>
 
 <style scoped>
+#container__main {
+  border-left: 1px solid #4E4E4E;
+  border-right: 1px solid #4E4E4E;
+  margin-left: 72px;
+  margin-right: 72px;
+  position: relative;
+  overflow: hidden;
+}
+
+.line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: #4E4E4E;
+  z-index: 1;
+}
+
+.line-left {
+  left: 33%;
+}
+
+.line-right {
+  left: 66%;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+}
+
+.container__nav {
+  width: 100%;
+  height: 87px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 72px;
+  padding-right: 72px;
+  border-bottom: 1px solid #4E4E4E;
+}
+
+.container__links__router {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.links__router {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  transition: color 0.5s ease;
+}
+
+.links__router::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: #FA4515;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.links__router:hover {
+  color: #f0f0f0;
+}
+
+.links__router:hover::after {
+  opacity: 1;
+}
+
+
 @media (min-width: 1024px) {}
 </style>

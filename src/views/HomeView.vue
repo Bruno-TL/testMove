@@ -1,9 +1,25 @@
 <template>
-  <section>
+  <section id="home">
     <p>home</p>
+    <p>home</p>
+    <p>home</p>
+    <p>home</p>
+    <p>home</p>
+    <p>home</p>
+    <p>home</p>
+    <p>home</p>
+    <p>home</p>
+    <p>home</p>
+    <p>home</p>
+    <p>home</p>
+
   </section>
 </template>
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style scoped>
+#home {
+  display: flex;
+}
+</style>
