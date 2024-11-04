@@ -12,6 +12,7 @@ import App from './App.vue'
 import router from './router'
 import '@mdi/font/css/materialdesignicons.css'
 import BaseButtonBudget from '@/components/base/BaseButtonBudget.vue'
+import '@/assets/fonts.css'
 
 const app = createApp(App)
 const vuetify = createVuetify({

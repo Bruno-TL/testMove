@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import '@/assets/fonts.css'
 const goPageBudget = () => {
 
 }
 </script>
 
 <template>
-  <v-btn append-icon="mdi-arrow-top-right" class="animated-button" @click="goPageBudget()">
+  <v-btn rounded="lg" append-icon="mdi-arrow-top-right" class="animated-button" @click="goPageBudget()">
     <span class="button-content">Orçamento</span>
   </v-btn>
 </template>
@@ -16,6 +17,7 @@ const goPageBudget = () => {
   overflow: hidden;
   color: #333;
   transition: color 0.3s ease;
+  height: 55px;
 }
 
 .animated-button::before {
@@ -43,5 +45,6 @@ const goPageBudget = () => {
   z-index: 1;
   display: flex;
   align-items: center;
+  font-family: 'DisplayBold', sans-serif;
 }
 </style>
