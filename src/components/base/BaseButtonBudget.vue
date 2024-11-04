@@ -6,7 +6,7 @@ const goPageBudget = () => {
 </script>
 
 <template>
-  <v-btn rounded="lg" append-icon="mdi-arrow-top-right" class="animated-button" @click="goPageBudget()">
+  <v-btn rounded="lg" append-icon="mdi-arrow-top-right" class="animated-button text-none" @click="goPageBudget()">
     <span class="button-content">Orçamento</span>
   </v-btn>
 </template>
@@ -46,5 +46,8 @@ const goPageBudget = () => {
   display: flex;
   align-items: center;
   font-family: 'DisplayBold', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
 }
 </style>

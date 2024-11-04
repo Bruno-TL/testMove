@@ -2,6 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import logoPRZ from '@/assets/logoPRZ.svg';
 import BaseButtonBudget from './components/base/BaseButtonBudget.vue';
+import '@/assets/fonts.css'
 </script>
 
 <template>
@@ -26,14 +27,14 @@ import BaseButtonBudget from './components/base/BaseButtonBudget.vue';
   <main id="container__main">
     <div class="line line-left"></div>
     <div class="line line-right"></div>
-    <RouterView class="content" />
+    <RouterView />
   </main>
 </template>
 
 <style scoped>
 #container__main {
-  border-left: 1px solid #4E4E4E;
-  border-right: 1px solid #4E4E4E;
+  border-left: 1px solid #4e4e4e9f;
+  border-right: 1px solid #4e4e4e9f;
   margin-left: 72px;
   margin-right: 72px;
   position: relative;
@@ -45,8 +46,8 @@ import BaseButtonBudget from './components/base/BaseButtonBudget.vue';
   top: 0;
   bottom: 0;
   width: 1px;
-  background-color: #4E4E4E;
-  z-index: 1;
+  background-color: #4e4e4e9f;
+  z-index: -1;
 }
 
 .line-left {
@@ -57,10 +58,6 @@ import BaseButtonBudget from './components/base/BaseButtonBudget.vue';
   left: 66%;
 }
 
-.content {
-  position: relative;
-  z-index: 2;
-}
 
 .container__nav {
   width: 100%;
@@ -71,6 +68,9 @@ import BaseButtonBudget from './components/base/BaseButtonBudget.vue';
   padding-left: 72px;
   padding-right: 72px;
   border-bottom: 1px solid #4E4E4E;
+  position: fixed;
+  z-index: 1000;
+  background-color: var(--bg-frame);
 }
 
 .container__links__router {
@@ -88,6 +88,10 @@ import BaseButtonBudget from './components/base/BaseButtonBudget.vue';
   height: 100%;
   position: relative;
   transition: color 0.5s ease;
+  font-family: 'DisplayRegular';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
 }
 
 .links__router::after {
