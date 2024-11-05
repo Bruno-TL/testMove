@@ -1,14 +1,90 @@
 <script setup lang="ts">
+import { defineProps } from 'vue';
+import BaseButton from '../base/BaseButton.vue';
+
+const props = defineProps<{
+  imageSrc: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  numberImg: string;
+}>();
+
+const widthContainer = () => {
+  switch (props.numberImg) {
+    case 'img3':
+      return 'widthImg3';
+    default:
+      return 'container__cases'
+  }
+}
 
 </script>
 
 <template>
-  <v-card>
-    <v-img></v-img>
-    <h2></h2>
-    <p></p>
-    <v-btn></v-btn>
-  </v-card>
+  <div :class="['pt-16', widthContainer()]">
+    <div class="case-card">
+      <v-img :src="props.imageSrc" class="div__image"></v-img>
+      <h2 class="title__cases">{{ props.title }}</h2>
+    </div>
+    <p class="text__cases">{{ props.description }}</p>
+    <BaseButton :titleButton="props.buttonText" :namePage="'cases'" />
+  </div>
 </template>
 
-<style scope></style>
+<style scope>
+.widthImg3 {
+  width: 856px;
+  margin-bottom: 113px;
+}
+
+.container__cases {
+  width: 636px;
+  margin-bottom: 113px;
+}
+
+.div__image {
+  object-fit: cover;
+  transition: transform 0.8s ease;
+  border-radius: 36px;
+}
+
+.case-card:hover .div__image {
+  transform: scale(1.1);
+}
+
+.title__cases {
+  font-family: 'DisplayRegular', sans-serif;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 57.6px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  margin-top: 24px;
+  padding-top: 10px;
+
+  transition: color 0.8s ease;
+}
+
+.case-card:hover .title__cases {
+  color: #FA4515;
+}
+
+.text__cases {
+  font-family: 'DisplayRegular', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: left;
+  color: #858585;
+  margin-bottom: 32px;
+}
+
+.case-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 36px;
+}
+</style>

@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import logoPRZ from '@/assets/logoPRZ.svg';
-import BaseButtonBudget from './components/base/BaseButtonBudget.vue';
+import BaseButton from './components/base/BaseButton.vue';
 import '@/assets/fonts.css'
+import { ref } from 'vue';
+
+const titleButtonBudget = ref('Orçamento');
+const namePageBudget = ref('budget');
 </script>
 
 <template>
@@ -14,12 +18,11 @@ import '@/assets/fonts.css'
         </RouterLink>
         <div class="container__links__router">
           <RouterLink class="links__router link_home" to="/">Home</RouterLink>
-          <RouterLink class="links__router link_cases" to="/#cases">Cases</RouterLink>
-          <RouterLink class="links__router link_serv" to="/#servicos">Serviços</RouterLink>
-          <RouterLink class="links__router link_quemsomos" to="/#quem-somos">Quem Somos</RouterLink>
+          <a class="links__router link_cases" href="#cases">Cases</a>
+          <a class="links__router link_serv" href="/#servicos">Serviços</a>
+          <a class="links__router link_quemsomos" href="/#quem-somos">Quem Somos</a>
         </div>
-
-        <BaseButtonBudget />
+        <BaseButton :titleButton="titleButtonBudget" :namePage="namePageBudget" />
       </nav>
     </div>
   </header>

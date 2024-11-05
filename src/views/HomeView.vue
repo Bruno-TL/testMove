@@ -6,7 +6,7 @@
       ajudando-os a vender melhor seu trabalho.</p>
 
     <div class="d-flex justify-center">
-      <BaseButtonBudget />
+      <BaseButton :titleButton="titleButtonBudget" :namePage="namePageBudget" />
     </div>
 
     <div class="d-flex justify-center pt-13 pb-13">
@@ -42,7 +42,24 @@
       </p>
     </div>
   </section>
-  <section>
+  <section id="cases" class="mt-16 cases-section">
+    <CasesComponent :button-text="'Ver o case'"
+      :description="'O projeto de interiores do escritório de advocacia apresentou desafios significativos, principalmente relacionados à necessidade de combinar uma estética formal e sofisticada com a funcionalidade exigida por um ambiente de trabalho intenso.'"
+      :title="'Interiores do Escritório de Advocacia'" :imageSrc="img_cases_1" :numberImg="'img1'" />
+    <div class="card1">
+      <CasesComponent :button-text="'Ver o case'"
+        :description="'O projeto de uma residência moderna em Campos do Jordão trouxe consigo desafios únicos, principalmente relacionados ao clima frio da região e à topografia montanhosa.'"
+        :title="'Residência Moderna em Campos do Jordão'" :imageSrc="img_cases_2" :numberImg="'img2'" />
+    </div>
+
+    <CasesComponent :button-text="'Ver o case'"
+      :description="'O projeto de uma residência moderna em Campos do Jordão trouxe consigo desafios únicos, principalmente relacionados ao clima frio da região e à topografia montanhosa.'"
+      :title="'Cozinha Industrial'" :imageSrc="img_cases_3" :numberImg="'img3'" />
+    <div class="card1">
+      <CasesComponent :button-text="'Ver o case'"
+        :description="'O projeto de interiores do escritório de advocacia apresentou desafios significativos, principalmente relacionados à necessidade de combinar uma estética formal e sofisticada com a funcionalidade exigida por um ambiente de trabalho intenso.'"
+        :title="'Residência Moderna em Condomínio em Taubaté'" :imageSrc="img_cases_4" :numberImg="'img4'" />
+    </div>
 
   </section>
 </template>
@@ -50,19 +67,25 @@
 
 <script setup lang="ts">
 import '@/assets/fonts.css'
-import BaseButtonBudget from '@/components/base/BaseButtonBudget.vue';
+import BaseButton from '@/components/base/BaseButton.vue';
 import BaseBannerImages from '@/components/base/BaseBannerImages.vue';
-import { RouterLink } from 'vue-router'
-
-
-import videoFake_1 from '@/assets/svg/videoFake_1.svg'
-import videoFake_2 from '@/assets/svg/videoFake_2.svg'
-import videoFake_3 from '@/assets/svg/videoFake_3.svg'
-
+import CasesComponent from '@/components/Cases/CasesComponent.vue';
+import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 
-const videoContainer = ref<HTMLDivElement | null>(null);
+import videoFake_1 from '@/assets/svg/videoFake_1.svg';
+import videoFake_2 from '@/assets/svg/videoFake_2.svg';
+import videoFake_3 from '@/assets/svg/videoFake_3.svg';
+import img_cases_1 from '@/assets/svg/cases/img_cases_1.svg'
+import img_cases_2 from '@/assets/svg/cases/img_cases_2.svg'
+import img_cases_3 from '@/assets/svg/cases/img_cases_3.svg'
+import img_cases_4 from '@/assets/svg/cases/img_cases_4.svg'
 
+const titleButtonBudget = ref('Orçamento');
+const namePageBudget = ref('budget');
+
+
+const videoContainer = ref<HTMLDivElement | null>(null);
 function scrollToVideo() {
   if (videoContainer.value) {
     videoContainer.value.scrollIntoView({
@@ -70,7 +93,8 @@ function scrollToVideo() {
       block: 'start'
     });
   }
-}
+};
+
 </script>
 
 <style scoped>
@@ -182,5 +206,15 @@ function scrollToVideo() {
 .link__text {
   text-decoration: underline;
   color: #FA4515;
+}
+
+.cases-section {
+  display: grid;
+  width: 100%;
+}
+
+.card1 {
+  display: flex;
+  justify-content: end;
 }
 </style>

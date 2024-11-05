@@ -1,13 +1,22 @@
 <script setup lang="ts">
 import '@/assets/fonts.css'
-const goPageBudget = () => {
+import { defineProps } from 'vue';
 
-}
+const props = defineProps<{
+  titleButton: string;
+  namePage: string;
+}>();
+
+
+const goPage = (namePage: string) => {
+  console.log(namePage)
+};
 </script>
 
 <template>
-  <v-btn rounded="lg" append-icon="mdi-arrow-top-right" class="animated-button text-none" @click="goPageBudget()">
-    <span class="button-content">Orçamento</span>
+  <v-btn rounded="lg" append-icon="mdi-arrow-top-right" class="animated-button text-none"
+    @click="goPage(props.namePage)">
+    <span class="button-content">{{ props.titleButton }}</span>
   </v-btn>
 </template>
 
