@@ -122,9 +122,10 @@
         </div>
       </div>
       <div class="profile_container2">
-        <div class="container__who_us_text ">
-          <h4 class="name__who_us">João <span class="name__who_us_span">Marcos Franco</span></h4>
-          <p class="text__who_us_simple">Formado em Arquitetura pela Universidade de Taubaté em 2018, João Marcos já
+        <div class="container__who_us_text">
+          <h4 class="name__who_us text-right">João <span class="name__who_us_span">Marcos Franco</span></h4>
+          <p class="text__who_us_simple text-right">Formado em Arquitetura pela Universidade de Taubaté em 2018, João
+            Marcos já
             trabalhava
             com maquetes
             eletrônicas antes de se formar, atendendo renomados arquitetos da região. Sua pós-graduação impulsiona sua
@@ -137,8 +138,9 @@
         </div>
       </div>
     </div>
-
-
+  </section>
+  <section class="my-16">
+    <CardBudgetProposal />
   </section>
 </template>
 
@@ -165,6 +167,7 @@ import thunderIcon from '@/assets/svg/thunder.svg'
 import seeFutureIcon from '@/assets/svg/quemSomos/see_future.svg'
 import img_daniel from '@/assets/svg/quemSomos/img_daniel.svg'
 import img_joao from '@/assets/svg/quemSomos/img_joao.svg'
+import CardBudgetProposal from '@/components/budget/CardBudgetProposal.vue';
 
 
 const titleButtonBudget = ref('Orçamento');
@@ -390,6 +393,7 @@ function scrollToVideo() {
   position: relative;
   width: fit-content;
   margin-left: 46%;
+  margin-top: -100px;
 }
 
 .profile_container_text {
@@ -401,6 +405,6 @@ function scrollToVideo() {
 .profile_container_text2 {
   position: absolute;
   top: -220px;
-  right: -190px;
+  right: -200px;
 }
 </style>

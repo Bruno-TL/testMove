@@ -4,7 +4,7 @@ import sucessIcon from '@/assets/svg/sucess.svg';
 </script>
 
 <template>
-  <v-card class="contanier__card_servico">
+  <v-card class="container__card_servico">
     <div class="d-flex px-5 justify-space-between pb-6">
       <span>01</span>
       <div>
@@ -30,7 +30,7 @@ import sucessIcon from '@/assets/svg/sucess.svg';
 </template>
 
 <style scoped>
-.contanier__card_servico {
+.container__card_servico {
   width: 100%;
   height: 250px;
   background-color: #ffffff00;
@@ -61,22 +61,22 @@ import sucessIcon from '@/assets/svg/sucess.svg';
   visibility: hidden;
 }
 
-.contanier__card_servico:hover .hover-text {
+.container__card_servico:hover .hover-text {
   right: 100%;
   opacity: 1;
   visibility: visible;
 }
 
 
-.contanier__card_servico:hover {
+.container__card_servico:hover {
   background-color: #FA4515;
 }
 
-.contanier__card_servico:hover .text__servico {
+.container__card_servico:hover .text__servico {
   color: #FFFFFF;
 }
 
-.contanier__card_servico:hover .custom-chip {
+.container__card_servico:hover .custom-chip {
   display: flex;
 }
 
