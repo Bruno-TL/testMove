@@ -4,6 +4,7 @@ import logoPRZ from '@/assets/logoPRZ.svg';
 import BaseButton from './components/base/BaseButton.vue';
 import '@/assets/fonts.css'
 import { ref } from 'vue';
+import FooterComponent from './components/Footer/FooterComponent.vue';
 
 const titleButtonBudget = ref('Orçamento');
 const namePageBudget = ref('budget');
@@ -32,6 +33,7 @@ const namePageBudget = ref('budget');
     <div class="line line-right"></div>
     <RouterView />
   </main>
+  <FooterComponent />
 </template>
 
 <style scoped>

@@ -142,6 +142,9 @@
   <section class="my-16">
     <CardBudgetProposal />
   </section>
+  <section class="py-16">
+    <BaseNamePRZ />
+  </section>
 </template>
 
 
@@ -151,6 +154,8 @@ import BaseButton from '@/components/base/BaseButton.vue';
 import BaseBannerImages from '@/components/base/BaseBannerImages.vue';
 import CasesComponent from '@/components/Cases/CasesComponent.vue';
 import CardServicoComponent from '@/components/servicos/CardServicoComponent.vue';
+import CardBudgetProposal from '@/components/budget/CardBudgetProposal.vue';
+import BaseNamePRZ from '@/components/base/BaseNamePRZ.vue';
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 
@@ -167,7 +172,7 @@ import thunderIcon from '@/assets/svg/thunder.svg'
 import seeFutureIcon from '@/assets/svg/quemSomos/see_future.svg'
 import img_daniel from '@/assets/svg/quemSomos/img_daniel.svg'
 import img_joao from '@/assets/svg/quemSomos/img_joao.svg'
-import CardBudgetProposal from '@/components/budget/CardBudgetProposal.vue';
+
 
 
 const titleButtonBudget = ref('Orçamento');
