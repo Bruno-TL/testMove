@@ -60,6 +60,84 @@
         :description="'O projeto de interiores do escritório de advocacia apresentou desafios significativos, principalmente relacionados à necessidade de combinar uma estética formal e sofisticada com a funcionalidade exigida por um ambiente de trabalho intenso.'"
         :title="'Residência Moderna em Condomínio em Taubaté'" :imageSrc="img_cases_4" :numberImg="'img4'" />
     </div>
+  </section>
+  <section id="servicos" class="w-100 mb-16">
+    <v-chip variant="outlined" class="custom-chip">
+      <v-img :src="computerIcon" width="20" height="20" class="mr-2" />
+      Serviços
+    </v-chip>
+    <h2 class="title__servicos mb-16">Visualize o futuro através de </h2>
+    <CardServicoComponent />
+    <CardServicoComponent />
+    <CardServicoComponent />
+    <CardServicoComponent />
+    <CardServicoComponent />
+    <CardServicoComponent />
+  </section>
+  <section id="quem-somos" class="w-100 container__quem_somos">
+    <div class="d-flex justify-end sticky-image-container">
+      <div class="image-wrapper">
+        <v-img :src="img_dupla" width="576" height="600" />
+      </div>
+    </div>
+    <div class="container__icon_who_us">
+      <div class="d-flex justify-space-between align-center">
+        <v-chip variant="outlined" class="custom-chip">
+          <v-img :src="thunderIcon" width="20" height="20" class="mr-2" />
+          Quem Somos
+        </v-chip>
+        <div class="pr-8">
+          <v-img :src="seeFutureIcon" width="120" height="120"></v-img>
+        </div>
+      </div>
+
+      <div class="container__text__about">
+        <p class="text__who_us">Combinamos <span class="span__who_us">técnicas avançadas com criatividade</span> para
+          transformar ideias em
+          visualizações que
+          inspiram e convencem.</p>
+        <p class="text__who_us_2">Nosso estúdio se destaca pela excelência e precisão de nossos trabalhos, com um
+          enfoque
+          especial em aprimorar
+          as apresentações dos projetos de nossos clientes, ajudando-os a vender melhor seu trabalho. Na PRZ Arqstudio,
+          combinamos técnica avançada com criatividade para transformar ideias em visualizações que inspiram e
+          convencem.
+        </p>
+      </div>
+    </div>
+    <div class="w-100">
+      <div class="profile-container d-flex justify-end">
+        <div>
+          <div>
+            <v-img :src="img_daniel" width="196" height="218" />
+          </div>
+        </div>
+        <div class="container__who_us_text profile_container_text">
+          <h4 class="name__who_us">Daniel <span class="name__who_us_span">Matias</span></h4>
+          <p class="text__who_us_simple">Arquiteto formado pela Universidade de Taubaté, Daniel sempre se dedicou ao
+            processo
+            criativo em 3D. </p>
+          <p class="text__who_us_simple">Ele vê a maquete eletrônica como essencial para simplificar e viabilizar
+            projetos.</p>
+        </div>
+      </div>
+      <div class="profile_container2">
+        <div class="container__who_us_text ">
+          <h4 class="name__who_us">João <span class="name__who_us_span">Marcos Franco</span></h4>
+          <p class="text__who_us_simple">Formado em Arquitetura pela Universidade de Taubaté em 2018, João Marcos já
+            trabalhava
+            com maquetes
+            eletrônicas antes de se formar, atendendo renomados arquitetos da região. Sua pós-graduação impulsiona sua
+            especialização em visualização arquitetônica, elevando sempre a qualidade de seus serviços.</p>
+        </div>
+        <div class="profile_container_text2">
+          <div>
+            <v-img :src="img_joao" width="197" height="219" />
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   </section>
 </template>
@@ -70,6 +148,7 @@ import '@/assets/fonts.css'
 import BaseButton from '@/components/base/BaseButton.vue';
 import BaseBannerImages from '@/components/base/BaseBannerImages.vue';
 import CasesComponent from '@/components/Cases/CasesComponent.vue';
+import CardServicoComponent from '@/components/servicos/CardServicoComponent.vue';
 import { RouterLink } from 'vue-router';
 import { ref } from 'vue';
 
@@ -80,6 +159,13 @@ import img_cases_1 from '@/assets/svg/cases/img_cases_1.svg'
 import img_cases_2 from '@/assets/svg/cases/img_cases_2.svg'
 import img_cases_3 from '@/assets/svg/cases/img_cases_3.svg'
 import img_cases_4 from '@/assets/svg/cases/img_cases_4.svg'
+import computerIcon from '@/assets/svg/computer.svg'
+import img_dupla from '@/assets/svg/quemSomos/img_dupla.svg'
+import thunderIcon from '@/assets/svg/thunder.svg'
+import seeFutureIcon from '@/assets/svg/quemSomos/see_future.svg'
+import img_daniel from '@/assets/svg/quemSomos/img_daniel.svg'
+import img_joao from '@/assets/svg/quemSomos/img_joao.svg'
+
 
 const titleButtonBudget = ref('Orçamento');
 const namePageBudget = ref('budget');
@@ -216,5 +302,105 @@ function scrollToVideo() {
 .card1 {
   display: flex;
   justify-content: end;
+}
+
+.custom-chip {
+  color: #FFFFFF;
+}
+
+.title__servicos {
+  font-family: 'DisplaySemibold', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 83.2px;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.container__quem_somos {
+  margin-top: 226px;
+  margin-bottom: 195px;
+}
+
+.container__icon_who_us {
+  margin-top: -50px;
+}
+
+.container__text__about {
+  width: 856px;
+  margin-bottom: 358px;
+}
+
+.text__who_us {
+  font-family: 'DisplayRegular', sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  line-height: 83.2px;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.text__who_us_2 {
+  font-family: 'DisplayRegular', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: left;
+  color: rgba(133, 133, 133, 1);
+}
+
+.span__who_us {
+  color: #FA4515;
+}
+
+.name__who_us {
+  font-family: 'DisplayBold', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  text-align: left;
+  color: #FFFFFF;
+}
+
+.name__who_us_span {
+  color: rgba(250, 69, 21, 1);
+}
+
+.text__who_us_simple {
+  font-family: 'DisplayBold', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  text-align: left;
+  color: rgba(133, 133, 133, 1);
+}
+
+.container__who_us_text {
+  width: 283px;
+}
+
+.profile-container {
+  position: relative;
+  width: fit-content;
+  margin-bottom: 450px;
+  margin-left: 19%;
+}
+
+.profile_container2 {
+  position: relative;
+  width: fit-content;
+  margin-left: 46%;
+}
+
+.profile_container_text {
+  position: absolute;
+  bottom: -220px;
+  right: -290px;
+}
+
+.profile_container_text2 {
+  position: absolute;
+  top: -220px;
+  right: -190px;
 }
 </style>

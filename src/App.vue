@@ -19,8 +19,8 @@ const namePageBudget = ref('budget');
         <div class="container__links__router">
           <RouterLink class="links__router link_home" to="/">Home</RouterLink>
           <a class="links__router link_cases" href="#cases">Cases</a>
-          <a class="links__router link_serv" href="/#servicos">Serviços</a>
-          <a class="links__router link_quemsomos" href="/#quem-somos">Quem Somos</a>
+          <a class="links__router link_serv" href="#servicos">Serviços</a>
+          <a class="links__router link_quemsomos" href="#quem-somos">Quem Somos</a>
         </div>
         <BaseButton :titleButton="titleButtonBudget" :namePage="namePageBudget" />
       </nav>
