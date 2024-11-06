@@ -14,42 +14,42 @@
           </v-btn>
         </div>
       </div>
-      <div class="container">
-        <!-- Lado Esquerdo -->
-        <div class="left-side">
-          <img src="path/to/image1.jpg" alt="Imagem 1" class="image image-1">
-          <img src="path/to/image2.jpg" alt="Imagem 2" class="image image-2">
-        </div>
+      <div class="w-100 d-flex justify-center my-16">
+        <div class="wrapper">
+          <div class="box1"><v-img :src="image1" width="350" height="428" cover /></div>
+          <div class="box2"><v-img :src="image3" width="636" height="320" cover /></div>
+          <div class="box3"><v-img :src="image4" width="306" height="600" cover /></div>
 
-        <!-- Central: Vídeo e Imagem sobreposta -->
-        <div class="center">
-          <div class="video-container">
-            <video width="306" height="499" controls>
-              <source src="path/to/video.mp4" type="video/mp4">
+          <div class="box5">
+            <video width="485" height="200" autoplay loop muted class="video">
+              <source src="@/assets/videos/video1.mp4" type="video/mp4">
             </video>
-            <img src="path/to/overlay-image.jpg" alt="Overlay Image" class="overlay-image">
           </div>
-        </div>
 
-        <!-- Lado Direito -->
-        <div class="right-side">
-          <img src="path/to/image3.jpg" alt="Imagem 3" class="image image-3">
+
+          <div class="box4"><v-img :src="image2" width="350" height="247" cover /></div>
+
+          <div class="box7"><v-img :src="image6" width="306" height="301" cover /></div>
+          <div class="box6"><v-img :src="image5" width="636" height="301" cover /></div>
+          <div class="box8"><v-img :src="image7" width="306" height="486" cover /></div>
         </div>
       </div>
 
-      <!-- Segunda Linha: Duas imagens abaixo do vídeo -->
-      <div class="bottom-row">
-        <img src="path/to/image4.jpg" alt="Imagem 4" class="image image-4">
-        <img src="path/to/image5.jpg" alt="Imagem 5" class="image image-5">
-      </div>
     </section>
   </main>
-
 </template>
 
 <script setup lang="ts">
 import logoPRZ from '@/assets/logoPRZ.svg';
 import BaseButton from '@/components/base/BaseButton.vue';
+import image1 from '@/assets/png/image1.png';
+import image2 from '@/assets/png/image2.png';
+import image3 from '@/assets/png/image3.png';
+import image4 from '@/assets/png/image4.png';
+import image5 from '@/assets/png/image5.png';
+import image6 from '@/assets/png/image6.png';
+import image7 from '@/assets/png/image7.png';
+
 </script>
 
 <style scoped>
@@ -129,5 +129,91 @@ import BaseButton from '@/components/base/BaseButton.vue';
 
 .buttons__thank {
   margin-top: 24px;
+}
+
+
+.container__grid video {
+  grid-area: video;
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  padding-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
+  /* grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr; */
+  /* Dividimos a segunda coluna em duas metades */
+  grid-auto-rows: 100px;
+  width: 1200px;
+  gap: 10px;
+}
+
+.box1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+
+.box2 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.box3 {
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+.box4 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 5;
+  grid-row-end: 7;
+}
+
+.box5 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 7;
+}
+
+.box6 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 7;
+  grid-row-end: 9;
+}
+
+.box7 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 7;
+  grid-row-end: 9;
+}
+
+.box8 {
+  grid-column-start: 4;
+  grid-column-end: 4;
+  grid-row-start: 6;
+  grid-row-end: 9;
+}
+
+.wrapper div {
+  border-radius: 32px;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  border-radius: 32px;
+  object-fit: cover;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
 }
 </style>

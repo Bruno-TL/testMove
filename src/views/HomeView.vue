@@ -15,7 +15,7 @@
     </div>
     <div ref="videoContainer" class="video__container">
       <video autoplay loop muted class="video">
-        <source src="@/assets/videos/3773488-hd_1920_1080_30fps.mp4" type="video/mp4" />
+        <source src="@/assets/videos/video1.mp4" type="video/mp4" />
         Seu navegador não suporta o vídeo.
       </video>
       <div class="related-videos">
