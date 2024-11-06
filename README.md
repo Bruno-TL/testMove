@@ -12,11 +12,6 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
 ### Observações Importantes
 
 - Tela de Obrigado: Para visualizar a tela de "Obrigado" ao clicar no botão de finalizar no orçamento, siga o procedimento:
