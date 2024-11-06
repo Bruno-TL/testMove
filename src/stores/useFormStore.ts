@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
-import api from '@/axiosConfig'
+import { ref, toRaw } from 'vue'
+// import api from '@/axiosConfig'
+import emailjs from '@emailjs/browser'
 
 interface FormData {
   natureProject: string | null
@@ -91,13 +92,18 @@ export const useFormStore = defineStore('form', () => {
 
   const submitFormData = async () => {
     try {
-      const response = await api.post('/endpoint', formData.value)
-      console.log('Dados enviados com sucesso:', response.data)
-      if (response.status == 200) {
-        return true
-      }
-      return false
-    } catch {
+      const plainData = toRaw(formData.value)
+      const response = await emailjs.send(
+        'service_xgkm7gh',
+        'template_zt0lbfr',
+        {
+          ...plainData,
+        },
+        'c-dso586YEVMslrKF',
+      )
+      return response.status == 200
+    } catch (error) {
+      console.log(error)
       return false
     }
   }

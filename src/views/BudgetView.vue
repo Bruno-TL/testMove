@@ -92,7 +92,8 @@
             <v-text-field variant="outlined" placeholder="Deixe aqui seu contato (Telefone ou E-mail)"
               class="input__chekbox__radio" :rules="[requiredText]" v-model="formData.contactQuestion"></v-text-field>
           </div>
-          <v-btn rounded="lg" type="submit" append-icon="mdi-arrow-top-right" class="animated-button text-none">
+          <v-btn rounded="lg" type="submit" append-icon="mdi-arrow-top-right" class="animated-button text-none"
+            :loading="loading">
             <span class="button-content">Finalizar</span>
           </v-btn>
           <p v-show="erroShowEnd" class="span__error">Preencha os dados do formulário !</p>
@@ -134,7 +135,7 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 const formStore = useFormStore();
-const { formData, validateForm } = formStore;
+const { formData, validateForm, submitFormData } = formStore;
 
 const showStep2 = ref(false);
 const showStep1 = ref(true);
@@ -142,6 +143,7 @@ const formRef = ref();
 const erroShow = ref(false);
 const erroShowEnd = ref(false);
 const dialog = ref(false);
+const loading = ref(false);
 
 const activeStep = (step: number) => {
   if (step === 2) {
@@ -158,21 +160,21 @@ const activeStep = (step: number) => {
 }
 
 
-// Função de envio do formulário
 const handleSubmit = async () => {
   if (!validateForm()) {
     erroShowEnd.value = true;
     setTimeout(() => { erroShowEnd.value = false; }, 3000)
     return
   }
-  const response = await formStore.submitFormData();
+  loading.value = true;
+  const response = await submitFormData();
+  loading.value = false;
   if (response) {
     await formStore.resetForm();
     router.push({ name: 'thankyou' });
   } else {
     dialog.value = true;
   }
-
 };
 
 const requiredText = (v: string) => !!v || 'Campo obrigatório';
