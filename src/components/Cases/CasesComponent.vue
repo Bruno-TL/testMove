@@ -24,7 +24,10 @@ const widthContainer = () => {
 <template>
   <div :class="['pt-16', widthContainer()]">
     <div class="case-card">
-      <v-img :src="props.imageSrc" class="div__image"></v-img>
+      <div class="div__image">
+        <v-img :src="props.imageSrc" class="img"></v-img>
+      </div>
+
       <h2 class="title__cases">{{ props.title }}</h2>
     </div>
     <p class="text__cases">{{ props.description }}</p>
@@ -45,11 +48,15 @@ const widthContainer = () => {
 
 .div__image {
   object-fit: cover;
-  transition: transform 0.8s ease;
   border-radius: 36px;
+  overflow: hidden;
 }
 
-.case-card:hover .div__image {
+.img {
+  transition: transform 1s ease;
+}
+
+.img:hover {
   transform: scale(1.1);
 }
 

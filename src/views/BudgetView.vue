@@ -16,6 +16,7 @@
     </div>
 
     <div class="container__budget_content_form">
+
       <div class="d-flex justify-space-between">
         <h2 class="title_content_form">Orçamentos</h2>
         <div>
@@ -24,6 +25,7 @@
       </div>
 
       <v-form @submit.prevent="handleSubmit" class="pt-8" ref="formRef">
+
         <div id="step-1" v-if="showStep1">
           <div>
             <span class="span__form_budget">Natureza do Projeto</span>
@@ -97,6 +99,29 @@
         </div>
       </v-form>
 
+      <template>
+        <div>
+          <v-dialog v-model="dialog" width="auto" class="container__popup">
+            <v-card max-width="400" class="card_popup" height="370">
+              <div class="container_circle">
+                <div class="container_circle_2">
+                  <v-icon icon="mdi-alert-circle-outline" color="orange-darken-2" size="large"></v-icon>
+                </div>
+              </div>
+
+
+              <h4 class="title_popup">Não foi possível solicitar no momento.</h4>
+              <p class="parag_popup">Por favor, entre em contato diretamente pelo<br> WhatsApp ou tente novamente.
+                Desculpe por isso.</p>
+              <div class="d-flex flex-column justify-center ga-4 mt-4">
+                <v-btn class=" button_popup button_home text-none" text="Ir para a Home" @click="goHome"></v-btn>
+                <v-btn class=" button_popup button_whatsapp text-none" text="Falar no WhatsApp"
+                  @click="goHome('thankyou')"></v-btn>
+              </div>
+            </v-card>
+          </v-dialog>
+        </div>
+      </template>
     </div>
   </section>
 </template>
@@ -116,6 +141,7 @@ const showStep1 = ref(true);
 const formRef = ref();
 const erroShow = ref(false);
 const erroShowEnd = ref(false);
+const dialog = ref(false);
 
 const activeStep = (step: number) => {
   if (step === 2) {
@@ -134,20 +160,31 @@ const activeStep = (step: number) => {
 
 // Função de envio do formulário
 const handleSubmit = async () => {
-  if (validateForm()) {
-    alert('Formulário enviado com sucesso!');
+  if (!validateForm()) {
+    erroShowEnd.value = true;
+    setTimeout(() => { erroShowEnd.value = false; }, 3000)
+    return
+  }
+  const response = await formStore.submitFormData();
+  if (response) {
     await formStore.resetForm();
     router.push({ name: 'thankyou' });
   } else {
-    erroShowEnd.value = true;
-    setTimeout(() => { erroShowEnd.value = false; }, 3000)
+    dialog.value = true;
   }
+
 };
 
 const requiredText = (v: string) => !!v || 'Campo obrigatório';
 
-const goHome = () => {
-  router.push({ name: 'home' });
+const goHome = (name: string | null) => {
+  dialog.value = false;
+  if (name === 'thankyou') {
+    router.push({ name: name });
+  } else {
+    router.push({ name: 'home' });
+  }
+
 }
 
 </script>
@@ -341,7 +378,73 @@ const goHome = () => {
   font-size: 16px;
   font-weight: 400;
   line-height: 20px;
+  color: rgba(255, 255, 255, 1);
+}
+
+.container__popup {
+  height: 370px;
+}
+
+.card_popup {
+  border-radius: 18px !important;
+  padding: 24px;
+  background-color: rgba(28, 28, 28, 1);
+  gap: 10px;
+}
+
+.title_popup {
+  font-family: 'DisplayRegular';
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
   text-align: left;
   color: rgba(255, 255, 255, 1);
+}
+
+.parag_popup {
+  font-family: 'DisplayRegular', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: rgba(133, 133, 133, 1);
+}
+
+.button_popup {
+  font-family: 'DisplayRegular', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+}
+
+.button_home {
+  background-color: rgba(250, 69, 21, 1);
+}
+
+.button_whatsapp {
+  border: 1px solid rgba(223, 223, 223, 1);
+  background-color: #ffffff00;
+}
+
+.container_circle {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(252, 252, 252);
+  border-radius: 100%;
+}
+
+.container_circle_2 {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 221, 218);
+  border-radius: 100%;
 }
 </style>

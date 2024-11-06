@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import api from '@/axiosConfig'
 
 interface FormData {
   natureProject: string | null
@@ -88,5 +89,18 @@ export const useFormStore = defineStore('form', () => {
     return Object.values(formErrors.value).every(error => error === '')
   }
 
-  return { formData, formErrors, validateForm, resetForm }
+  const submitFormData = async () => {
+    try {
+      const response = await api.post('/endpoint', formData.value)
+      console.log('Dados enviados com sucesso:', response.data)
+      if (response.status == 200) {
+        return true
+      }
+      return false
+    } catch {
+      return false
+    }
+  }
+
+  return { formData, formErrors, validateForm, resetForm, submitFormData }
 })
