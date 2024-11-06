@@ -1,5 +1,6 @@
 <template>
-  <section class="section__home">
+  <section id="home" class="section__home">
+
     <h1 class="title-h1">A melhor maneira de visualizar o futuro é projetando ele.</h1>
     <p class="p__home">Nosso estúdio se destaca pela excelência e precisão de nossos trabalhos, com um
       enfoque especial em aprimorar as apresentações dos projetos de nossos clientes,
@@ -8,7 +9,7 @@
     <div class="d-flex justify-center">
       <BaseButton :titleButton="titleButtonBudget" :namePage="namePageBudget" />
     </div>
-
+    <ScrollToTopButton />
     <div class="d-flex justify-center pt-13 pb-13">
       <v-btn icon="mdi-arrow-down-thin" @click="scrollToVideo">
       </v-btn>
@@ -172,8 +173,7 @@ import thunderIcon from '@/assets/svg/thunder.svg'
 import seeFutureIcon from '@/assets/svg/quemSomos/see_future.svg'
 import img_daniel from '@/assets/svg/quemSomos/img_daniel.svg'
 import img_joao from '@/assets/svg/quemSomos/img_joao.svg'
-
-
+import ScrollToTopButton from '@/components/ScrollToTopButton.vue';
 
 const titleButtonBudget = ref('Orçamento');
 const namePageBudget = ref('budget');

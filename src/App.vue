@@ -21,7 +21,7 @@ const namePageBudget = ref('budget');
           <v-img :width="123" :src="logoPRZ"></v-img>
         </RouterLink>
         <div class="container__links__router">
-          <RouterLink class="links__router link_home" to="/">Home</RouterLink>
+          <a class="links__router link_home" href="#home">Home</a>
           <a class="links__router link_cases" href="#cases">Cases</a>
           <a class="links__router link_serv" href="#servicos">Serviços</a>
           <a class="links__router link_quemsomos" href="#quem-somos">Quem Somos</a>
@@ -125,7 +125,4 @@ const namePageBudget = ref('budget');
 .links__router:hover::after {
   opacity: 1;
 }
-
-
-@media (min-width: 1024px) {}
 </style>
