@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
 import logoPRZ from '@/assets/logoPRZ.svg';
 import BaseButton from './components/base/BaseButton.vue';
 import '@/assets/fonts.css'
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import FooterComponent from './components/Footer/FooterComponent.vue';
+const route = useRoute();
+
+const nameRoute = computed(() => route.name);
 
 const titleButtonBudget = ref('Orçamento');
 const namePageBudget = ref('budget');
@@ -12,7 +15,7 @@ const namePageBudget = ref('budget');
 
 <template>
   <header>
-    <div class="">
+    <div v-if="nameRoute !== 'budget' && nameRoute !== 'thankyou'" class="">
       <nav class="container__nav">
         <RouterLink to="/" class="img__logo">
           <v-img :width="123" :src="logoPRZ"></v-img>
@@ -28,12 +31,16 @@ const namePageBudget = ref('budget');
     </div>
   </header>
 
-  <main id="container__main">
+  <main v-if="nameRoute == 'budget' || nameRoute == 'thankyou'">
+    <RouterView />
+  </main>
+  <main v-else id="container__main">
     <div class="line line-left"></div>
     <div class="line line-right"></div>
     <RouterView />
   </main>
-  <FooterComponent />
+
+  <FooterComponent v-if="nameRoute !== 'budget' && nameRoute !== 'thankyou'" />
 </template>
 
 <style scoped>

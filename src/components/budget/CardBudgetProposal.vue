@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import router from '@/router';
+
 const goPage = (namePage: string) => {
-  console.log(namePage)
+  router.push({ name: namePage });
 };
 
 </script>

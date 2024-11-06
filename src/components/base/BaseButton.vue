@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import '@/assets/fonts.css'
 import { defineProps } from 'vue';
+import { useRouter } from 'vue-router';
 
 const props = defineProps<{
   titleButton: string;
   namePage: string;
 }>();
-
+const router = useRouter();
 
 const goPage = (namePage: string) => {
-  console.log(namePage)
+  router.push({ name: namePage });
 };
 </script>
 
