@@ -19,16 +19,12 @@
           <div class="box1"><v-img :src="image1" width="350" height="470" cover class="img_box" /></div>
           <div class="box2"><v-img :src="image3" width="636" height="352" cover class="img_box" /></div>
           <div class="box3"><v-img :src="image4" width="306" height="650" cover class="img_box" /></div>
-
           <div class="box5">
             <video width="485" height="200" autoplay loop muted class="video">
               <source src="@/assets/videos/video1.mp4" type="video/mp4">
             </video>
           </div>
-
-
           <div class="box4"><v-img :src="image2" width="350" height="350" cover class="img_box" /></div>
-
           <div class="box7"><v-img :src="image6" width="306" height="301" cover class="img_box" /></div>
           <div class="box6"><v-img :src="image5" width="636" height="301" cover class="img_box" /></div>
           <div class="box8"><v-img :src="image7" width="306" height="486" cover class="img_box" /></div>
@@ -142,9 +138,6 @@ import image7 from '@/assets/png/image7.png';
   padding-top: 60px;
   display: grid;
   grid-template-columns: 1fr 0.5fr 0.5fr 1fr;
-  /* grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr; */
-  /* Dividimos a segunda coluna em duas metades */
-  /* grid-auto-rows: 100px; */
   width: 1200px;
   gap: 10px;
 }

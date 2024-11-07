@@ -6,6 +6,11 @@ import twitter from '@/assets/svg/footer/twitter.svg'
 import telephone from '@/assets/svg/footer/telephone.svg'
 import email from '@/assets/svg/footer/email.svg'
 import gps from '@/assets/svg/footer/gps.svg'
+import { ref } from 'vue'
+
+const instagramUrl = ref('https://www.instagram.com/_movedigital/');
+const facebookUrl = ref('https://www.facebook.com/MoveDigital');
+const linkedInUrl = ref('https://www.facebook.com/MoveDigital');
 </script>
 
 <template>
@@ -21,11 +26,25 @@ import gps from '@/assets/svg/footer/gps.svg'
           </div>
           <div class="d-flex ga-2">
             <div>
-              <v-img :src="facebook" width="24" height="24" />
+              <a :href="facebookUrl" target="_blank" rel="noopener noreferrer">
+                <v-img :src="facebook" width="24" height="24" />
+              </a>
             </div>
-            <div><v-img :src="instagram" width="24" height="24" /></div>
-            <div><v-img :src="linkedIn" width="24" height="24" /></div>
-            <div><v-img :src="twitter" width="24" height="24" /></div>
+            <div>
+              <a :href="instagramUrl" target="_blank" rel="noopener noreferrer">
+                <v-img :src="instagram" width="24" height="24" />
+              </a>
+            </div>
+            <div>
+              <a :href="linkedInUrl" target="_blank" rel="noopener noreferrer">
+                <v-img :src="linkedIn" width="24" height="24" />
+              </a>
+            </div>
+            <div>
+              <a :href="linkedInUrl" target="_blank" rel="noopener noreferrer">
+                <v-img :src="twitter" width="24" height="24" />
+              </a>
+            </div>
           </div>
         </div>
         <div class="w-33">

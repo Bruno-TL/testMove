@@ -1,26 +1,35 @@
 <script setup lang="ts">
-import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { RouterLink, RouterView, useRoute, useRouter } from 'vue-router'
 import logoPRZ from '@/assets/logoPRZ.svg';
 import BaseButton from './components/base/BaseButton.vue';
 import '@/assets/fonts.css'
 import { computed, ref } from 'vue';
 import FooterComponent from './components/Footer/FooterComponent.vue';
 const route = useRoute();
+const router = useRouter();
 
 const nameRoute = computed(() => route.name);
 
 const titleButtonBudget = ref('Orçamento');
 const namePageBudget = ref('budget');
+
+const goBack = () => {
+  router.back();
+}
 </script>
 
 <template>
   <header>
     <div v-if="nameRoute !== 'budget' && nameRoute !== 'thankyou'" class="">
       <nav class="container__nav">
+        <v-btn v-show="nameRoute === 'cases'" prepend-icon="mdi-chevron-left" variant="plain" density="comfortable"
+          class="button__nav_back" @click="goBack">
+          Voltar
+        </v-btn>
         <RouterLink to="/" class="img__logo">
           <v-img :width="123" :src="logoPRZ"></v-img>
         </RouterLink>
-        <div class="container__links__router">
+        <div v-show="nameRoute !== 'cases'" class="container__links__router">
           <a class="links__router link_home" href="#home">Home</a>
           <a class="links__router link_cases" href="#cases">Cases</a>
           <a class="links__router link_serv" href="#servicos">Serviços</a>
@@ -83,6 +92,15 @@ const namePageBudget = ref('budget');
   position: fixed;
   z-index: 1000;
   background-color: var(--bg-frame);
+}
+
+.button__nav_back {
+  color: rgba(133, 133, 133, 1);
+  font-family: 'DisplayRegular', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+
 }
 
 .container__links__router {
