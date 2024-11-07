@@ -17,3 +17,5 @@ npm run dev
 - Tela de Obrigado: Para visualizar a tela de "Obrigado" ao clicar no botão de finalizar no orçamento, siga o procedimento:
     - Clique no botão "Falar no WhatsApp" quando o popup de erro aparecer.
     - Isso simulará a finalização e exibirá a tela de agradecimento.
+
+### Não foi desenvolvido versão mobile.
