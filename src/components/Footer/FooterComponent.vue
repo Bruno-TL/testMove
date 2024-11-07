@@ -7,10 +7,17 @@ import telephone from '@/assets/svg/footer/telephone.svg'
 import email from '@/assets/svg/footer/email.svg'
 import gps from '@/assets/svg/footer/gps.svg'
 import { ref } from 'vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const instagramUrl = ref('https://www.instagram.com/_movedigital/');
 const facebookUrl = ref('https://www.facebook.com/MoveDigital');
 const linkedInUrl = ref('https://www.facebook.com/MoveDigital');
+
+const goPage = (namePage: string) => {
+  router.push({ name: namePage });
+};
 </script>
 
 <template>
@@ -50,10 +57,26 @@ const linkedInUrl = ref('https://www.facebook.com/MoveDigital');
         <div class="w-33">
           <h5 class="title__footer_link">Empresa</h5>
           <ol>
-            <ul class="text__footer_link mb-4">Home</ul>
-            <ul class="text__footer_link mb-4">Cases</ul>
-            <ul class="text__footer_link mb-4">Quem Somos</ul>
-            <ul class="text__footer_link mb-4">Orçamentos</ul>
+            <ul class="list__btn">
+              <v-btn variant="plain" @click="goPage('home')" class="text-none text__footer_link">
+                Home
+              </v-btn>
+            </ul>
+            <ul class="list__btn">
+              <v-btn variant="plain" @click="goPage('cases')" class="text-none text__footer_link">
+                Case
+              </v-btn>
+            </ul>
+            <ul class="list__btn">
+              <v-btn variant="plain" @click="goPage('home')" class="text-none text__footer_link">
+                Quem Somos
+              </v-btn>
+            </ul>
+            <ul class="list__btn">
+              <v-btn variant="plain" @click="goPage('budget')" class="text-none text__footer_link">
+                Orçamentos
+              </v-btn>
+            </ul>
           </ol>
         </div>
         <div class="w-33">
@@ -158,5 +181,16 @@ const linkedInUrl = ref('https://www.facebook.com/MoveDigital');
   font-size: 700;
   text-decoration: none;
   color: #FFFFFF;
+}
+</style>
+
+<style>
+.list__btn .v-btn--size-default {
+  padding: 0px;
+  min-width: 0px;
+}
+
+.list__btn .v-btn--variant-plain {
+  opacity: 1;
 }
 </style>
