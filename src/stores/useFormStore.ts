@@ -94,12 +94,12 @@ export const useFormStore = defineStore('form', () => {
     try {
       const plainData = toRaw(formData.value)
       const response = await emailjs.send(
-        'service_xgkm7gh',
-        'template_zt0lbfr',
+        'service_xgim28nu',
+        'template_zt2327sff',
         {
           ...plainData,
         },
-        'c-dso586YEVMslrKF',
+        'c-asd82513WTWVWV',
       )
       return response.status == 200
     } catch (error) {
